@@ -15,3 +15,5 @@ P.S. ЗАДАНИЕ НЕ ПОДРАЗУМЕВАЕТ, ЧТО ЭНДПОИНТ Р�
 3) Salary: только целые цифры в диапазоне 1-1000000 включительно. Поле обязательное
 
 ![Image alt](https://github.com/EugeneVovk/Postman-HW_2.2/raw/main/img/1.1.jpg)
+
+Ссылка нф тест-кейс https://docs.google.com/spreadsheets/d/1iklcEl2DKcIEgIlr5S5mTxPbHbr_0jIoRbxWfjaPBhE/edit?usp=sharing
