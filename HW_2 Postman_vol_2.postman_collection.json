@@ -1,0 +1,1107 @@
+{
+	"info": {
+		"_postman_id": "651e4eca-1ddd-4e12-960d-61bfdc5efce3",
+		"name": "HW_2 Postman_vol_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20224332"
+	},
+	"item": [
+		{
+			"name": "1.Valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Invalid - all fields are empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "60",
+							"disabled": true
+						},
+						{
+							"key": "salary",
+							"value": "500000",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Valid Name - Max input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lorem ipsum dolor sit amet, consectetuer"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Inalid Name - Max input + 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lorem ipsum dolor sit amet, consectetuer@"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Inalid Name - input White space in the front and in the back",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lorem ipsum dolor sit amet, consectetue "
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Valid Name - Min input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bob"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Inalid Name - Min input - 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Lo",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "60",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "500000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Inalid Name - Empty field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lo",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Inalid Name - ZERO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "0"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Invalid Age - not int/long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "1.23"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Valid Age - Max input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "120"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Invalid Age - Max input + 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "121"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. Valid Age - Min input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "18"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. Invalid Age - Min input -1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "17"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "15. Invalid Age - Required field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "17",
+							"disabled": true
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16. Invalid Age - ZERO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "0"
+						},
+						{
+							"key": "salary",
+							"value": "500000"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17. Valid Salary - Max Input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code == 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "1000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18. Invalid Salary - Max input + 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "1000001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19. Valid Salary - Min input",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code == 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20. Invalid Salary - Min input - 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "21. Invalid Salary - Not digit/letter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "1O0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "22. Invalid Salary: Not digit/sp. char",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "100@00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "23. Invalid Salary: Required Field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code != 200\", function () {\r",
+							"    pm.response.to.have.not.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "$Ant@-Mar!* Porto (Rum) Ent%23usiast"
+						},
+						{
+							"key": "age",
+							"value": "60"
+						},
+						{
+							"key": "salary",
+							"value": "100@00",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_2}}/user_info_2",
+					"host": [
+						"{{url_2}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
