@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "2f5833c2-772e-492f-aca5-25d25114fd7d",
+		"name": "HW_2 Postman_vol_2.1.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20224332"
+	},
+	"item": [
+		{
+			"name": "1.Valid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**\r",
+							" * Преобразовать задание 1 таким образом, \r",
+							" * чтобы вы отправляли параметры через CSV файл. \r",
+							" * У вас будет ровно 1 запрос в коллекции, \r",
+							" * который будет повторяться столько раз, сколько строк в CSV файле. \r",
+							" * Также должна быть написана функция в тестах, \r",
+							" * которая проверяет валидность входящих данных, \r",
+							" * и в зависимости от этого проверяет на статус 200 или НЕ 200.\r",
+							" */\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"if (validTest(jsonData.person.u_name)) {\r",
+							"    pm.test(\"Status code is 200\", function () {\r",
+							"        pm.response.to.have.status(200);\r",
+							"    });\r",
+							"} else {\r",
+							"\r",
+							"    pm.test(\"Status code isn't 200\", function () {\r",
+							"        pm.response.to.have.not.status(200);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"function validTest(data) {\r",
+							"    let valid = true;\r",
+							"    for (let idx in data) {\r",
+							"        if (idx == 0) {\r",
+							"            if (!data[idx].length >= 3 && !data[idx].length <= 40) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (data[idx].startsWith(' ') && data[idx].endsWith(' ')) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (data[idx] == '') {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"        }\r",
+							"        if (idx == 2) {\r",
+							"            if (!Number.isInteger(data[idx])) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (!data[idx] >= 1 && !data[idx] <= 1000000) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (data[idx] == '') {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"        }\r",
+							"        if (idx == 1) {\r",
+							"            if (!Number.isInteger(data[idx])) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (!data[idx] >= 18 && !data[idx] <= 120) {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"            if (data[idx] == '') {\r",
+							"                valid = false;\r",
+							"                break;\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"    return valid;\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/user_info_2",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
