@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "b4fdb296-bf93-43a3-b495-65cb8913943d",
+		"name": "HW_2 Postman_vol_2.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20224332"
+	},
+	"item": [
+		{
+			"name": "test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/**\r",
+							"* 2. http://162.55.220.72:5007/object_info_4\r",
+							"* Преобразовать пункты 12-13-14 (salary из реквеста и респонса равны) \r",
+							"* таким образом, чтобы проверка производилась циклом, \r",
+							"* в котором будет всего ОДИН тест. \r",
+							"* Имя теста должно меняться в зависимости от значения в Salary\r",
+							"*/\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"const reqData = pm.request.url.query.toObject();\r",
+							"\r",
+							"for (let n in jsonData.salary) {\r",
+							"    pm.test(`salary[${n}] == salary`, function () {\r",
+							"        pm.expect(+jsonData.salary[n]).to.eql(reqData.salary * (++n));\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/object_info_4?name={{name}}&age={{age}}&salary={{salary}}",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
